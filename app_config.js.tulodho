@@ -1,0 +1,9 @@
+export const AppConfig = {
+    rpcUrl : "http://0.0.0.0:7545",
+    tokenName: "Ethereum L2 TA",
+    tokenSymbol: "YETH",
+    l1Exploerer: "https://goerli.etherscan.io/tx/{{txHash}}",
+    l1HashTemplate: "{{txHash}}",
+}
+
+// for l1Explorer use {{txHash}} to be replaced with tx
