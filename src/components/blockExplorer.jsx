@@ -123,8 +123,8 @@ export default function Explorer() {
                                     <tbody>
                                     {blocks.map((block, index) => (
                                         <tr key={index} className={`bg-white ${index % 2 === 0 ? 'bg-gray-100' : ''}`}>
-                                            <td className="px-4 py-2 border border-gray-300">{block.number}</td>
-                                            <td className="px-4 py-2 border border-gray-300">{block.hash}</td>
+                                            <td className="px-4 py-2 border border-gray-300"><a href={`/block/${block.hash}`}>{block.number}</a></td>
+                                            <td className="px-4 py-2 border border-gray-300"><a href={`/block/${block.hash}`}>{block.hash}</a></td>
                                             <td className="px-4 py-2 border border-gray-300">{new Date(block.timestamp * 1000).toLocaleString()}</td>
                                             <td className="px-4 py-2 border border-gray-300">{block.transactions.length}</td>
                                             <td className="px-4 py-2 border border-gray-300">{block.commitTx && block.commitTx.length > 4 ? "OK" : "NOT OK"}</td>
@@ -157,9 +157,9 @@ export default function Explorer() {
                                     <tbody>
                                     {transactions.map((tx, index) => (
                                         <tr key={index} className={`bg-white ${index % 2 === 0 ? 'bg-gray-50' : ''}`}>
-                                            <td className="px-4 py-2 border border-gray-300">{tx.hash}</td>
-                                            <td className="px-4 py-2 border border-gray-300">{tx.from}</td>
-                                            <td className="px-4 py-2 border border-gray-300">{tx.to ?? "Contract creation"}</td>
+                                            <td className="px-4 py-2 border border-gray-300"><a href={`/transaction/${tx.hash}`}>{tx.hash}</a></td>
+                                            <td className="px-4 py-2 border border-gray-300"><a href={`/address/${tx.from}`}>{tx.from}</a></td>
+                                            <td className="px-4 py-2 border border-gray-300"><a href={`/address/${tx.to ?? ''}`}>{tx.to ??  "Contract creation"}</a></td>
                                             <td className="px-4 py-2 border border-gray-300">{(hexToInt(tx.value)/(Math.pow(10, 18)))}</td>
                                         </tr>
                                     ))}

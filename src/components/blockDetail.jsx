@@ -45,15 +45,19 @@ export function InsideBlock ({block}){
             {transactions.length > 0 ? (
                 transactions.map((tx, index) => (
                     <div key={index} className="bg-white rounded shadow-md p-4 mb-4">
-                        <h3 className="text-lg mb-2">Transaction {index + 1}</h3>
-                        <b>Hash: {tx.hash}</b>
-                        <p>From: {tx.from}</p>
-                        <p>To: {tx.to ?? `smart contract creation`}</p>
-                        <p>Value: {tx.value}</p>
+                        <div>
+                            <h3 className="text-lg mb-2">Transaction {index + 1}</h3>
+                            <b>Hash: {tx.hash}</b>
+                            <p>From: {tx.from}</p>
+                            <p>To: {tx.to ?? `smart contract creation`}</p>
+                            <p>Value: {tx.value}</p>
+                        </div>
 
-                        <button className="bg-green-700 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded">
-                            Get Transaction Detail
-                        </button>
+                        <div className="mt-6">
+                            <a href={`/transaction/${tx.hash}`} className="bg-green-700 hover:bg-blue-700 text-white font-bold py-2 px-4 my-4 rounded">
+                                Get Transaction Detail
+                            </a>
+                        </div>
                         {/* Display the other transaction data here */}
                     </div>
                 ))
